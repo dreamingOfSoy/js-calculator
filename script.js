@@ -48,6 +48,10 @@ const getBtnValue = function (e) {
     e.target.dataset.value === '+'
   ) {
     if (operator.length > 0) {
+      if (numTwo.length === 0) {
+        btnSection.textContent = 0;
+        return;
+      }
       answer = buildSum(numOne, operator, numTwo);
       numOne = answer;
       numTwo = [];
