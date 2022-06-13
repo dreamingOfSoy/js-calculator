@@ -87,7 +87,10 @@ const getBtnValue = function (e) {
   }
 
   if (e.target.dataset.value === '=') {
-    if (numTwo.length === 0) return;
+    if (numTwo.length === 0) {
+      btnSection.textContent = 0;
+      return;
+    }
 
     displaySectionSecondNum.textContent = numTwo.join('');
     displaySectionOpTwo.textContent = '=';
