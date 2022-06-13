@@ -1,0 +1,132 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.btn {
+  padding: 1rem;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calc-display {
+  width: 100%;
+  padding: 2rem;
+  border-bottom: 0.2rem solid black;
+
+  display: flex;
+}
+
+.display {
+  width: 100%;
+  text-align: end;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sum-section {
+  padding: 0.4rem;
+  height: 2rem;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.btn-section {
+  height: 4rem;
+  font-size: 3rem;
+}
+
+.calc-buttons {
+  width: 100%;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+.btn-0 {
+  grid-row: 5/6;
+}
+
+.btn-1 {
+  grid-row: 4/5;
+}
+
+.btn-2 {
+  grid-row: 4/5;
+}
+
+.btn-3 {
+  grid-row: 4/5;
+}
+
+.btn-4 {
+  grid-row: 3/4;
+}
+
+.btn-5 {
+  grid-row: 3/4;
+}
+
+.btn-6 {
+  grid-row: 3/4;
+}
+
+.btn-7 {
+  grid-row: 2/3;
+}
+
+.btn-8 {
+  grid-row: 2/3;
+}
+
+.btn-9 {
+  grid-row: 2/3;
+}
+
+.btn-dot {
+  grid-row: 5/6;
+}
+
+.btn-eq {
+  grid-row: 5/6;
+}
+
+.btn-delete {
+  grid-row: 1/2;
+  grid-column: 3/5;
+}
+
+.btn-clear {
+  grid-row: 1/2;
+  grid-column: 1/3;
+}
