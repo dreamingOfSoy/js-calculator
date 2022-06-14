@@ -50,14 +50,22 @@ const formatSum = function () {
   numTwo = [];
 };
 
+const addZeroBeforeDecimal = function (num, e) {
+  if (e.target.textContent === '.' && num.includes(0))
+    btnSection.textContent = '0.';
+};
+
 // These two functions format and assign the two number involved in the equation.
 
 const assignNumberOne = function (e) {
+  // Adds a zero before decimal in display
+  addZeroBeforeDecimal(numOne, e);
+
   // Stops the decimal from being pressed twice.
   if (e.target.dataset.value === '.') {
     stopDoubleDecimal(numOne, e);
   } else {
-    // If the number is an array its the first number calculated, if it's a number, its the sum of an equasion and therefore can be combined with additionally pressed numbers.
+    // If the number is an array its the first number calculated, if it's a number, its the sum of an equasion and therefore can be combined with additionally pressed numbers. Then pushes number to the correct num array.
     if (Array.isArray(numOne)) {
       numOne.push(+e.target.dataset.value);
     } else {
@@ -68,11 +76,13 @@ const assignNumberOne = function (e) {
 };
 
 const assignNumberTwo = function (e) {
+  // Adds a zero before decimal in display
+  addZeroBeforeDecimal(numTwo, e);
+
+  // Ppushes number to the correct num array.
   e.target.dataset.value === '.'
     ? stopDoubleDecimal(numTwo, e)
     : numTwo.push(+e.target.dataset.value);
-
-  console.log(numTwo);
 };
 
 // This function assigns the operators correctly.
@@ -87,7 +97,6 @@ const assignOperator = function (e) {
     }
 
     formatSum();
-    console.log(answer);
   }
 
   // Return operator array to zero to prevent doubling up on operators.
@@ -109,8 +118,6 @@ const assignOperator = function (e) {
   // Displays the numbers correctly formatted in the display.
   displaySectionOpOne.textContent = operator.join('');
   btnSection.textContent = 0;
-
-  console.log(operator);
 };
 
 // This function calculates the equation currently displayed.
@@ -135,8 +142,6 @@ const equals = function () {
   !isFinite(answer)
     ? (btnSection.textContent = 'to infinity and beyond!')
     : (btnSection.textContent = answer);
-
-  console.log(answer);
 };
 
 const deleteBtn = function () {
@@ -210,8 +215,6 @@ const subtract = function (numOne, numTwo) {
 };
 
 const buildSum = function (numberOne, operator, numberTwo) {
-  console.log(numberOne, operator, numberTwo);
-
   // Here we define a new local variable first for the number one, as it could be inputted as either an array or a number depending on the stage of the equation. Doing this allows the correct method of formatting and for it to be reassigned mid sum.
 
   let numOne;
@@ -224,7 +227,6 @@ const buildSum = function (numberOne, operator, numberTwo) {
 
   const op = operator.join('');
   const numTwo = +numberTwo.join('');
-  console.log(numOne, op, numTwo);
 
   // Depending on the operator in the equation, call the correct function
 
