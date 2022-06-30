@@ -6,6 +6,6 @@ I'd learned the basics of JavaScript through other means, however, in checking o
 
 I mapped out the logic on my own, and coded this from scratch. I was very happy when I realised I'd retained a lot of previous knowledge and was able to apply it here.
 
-I took the time to refactor my code, making it as DRY as possible, this practicing good coding habbits. One thing I did learn, however, is that refactoring less code, more often, is much better than more code, less often.
+I took the time to refactor my code, making it as DRY as possible, this practicing good coding habits. One thing I did learn, however, is that refactoring less code, more often, is much better than more code, less often.
 
-Overall, I'm please with this calculator. You can fiddle with him here: https://calcpal.netlify.app
+Overall, I'm please with this calculator. You can fiddle with him [HERE](https://calcpal.netlify.app).

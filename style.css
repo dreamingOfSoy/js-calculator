@@ -50,6 +50,7 @@ a:hover {
   width: 100%;
   padding: 2rem;
   border-bottom: 0.2rem solid black;
+  overflow: hidden;
 
   display: flex;
 }
@@ -65,12 +66,17 @@ a:hover {
 
 .sum-section {
   padding: 0.4rem;
-  height: 2rem;
+  height: 3.2rem;
   font-size: 2rem;
   font-style: italic;
 }
 
 .btn-section {
+  height: 4rem;
+  font-size: 3rem;
+}
+
+.placeholder {
   height: 4rem;
   font-size: 3rem;
 }
@@ -145,4 +151,8 @@ a:hover {
 
 .copyright-tag {
   font-size: 1.2rem;
+}
+
+.displaynone {
+  display: none !important;
 }
