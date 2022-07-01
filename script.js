@@ -39,7 +39,8 @@ const stopDoubleDecimal = function (num, e) {
       btnSection.textContent = numOne;
       return;
     }
-    numOne = [number, e.target.dataset.value];
+    numOne = [num, e.target.dataset.value];
+
     btnDot.disabled = true;
     return;
   }
@@ -65,13 +66,16 @@ const addZeroBeforeDecimal = function (num, e) {
 };
 
 const assignNumberOne = function (e) {
-  console.log(numOne);
   if (e.target.dataset.value === '.') {
     stopDoubleDecimal(numOne, e);
   } else {
     if (Array.isArray(numOne)) {
       numOne.push(+e.target.dataset.value);
     } else {
+      if (typeof numOne === 'number') {
+        const number = numOne.toString().split('');
+        if (number.includes('.')) btnDot.disabled = true;
+      }
       numOne = [numOne, +e.target.dataset.value];
     }
   }
