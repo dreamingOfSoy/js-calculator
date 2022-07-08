@@ -66,6 +66,7 @@ const addZeroBeforeDecimal = function (num, e) {
 };
 
 const assignNumberOne = function (e) {
+  removePlaceholder();
   if (e.target.dataset.value === '.') {
     stopDoubleDecimal(numOne, e);
   } else {
@@ -83,6 +84,7 @@ const assignNumberOne = function (e) {
 };
 
 const assignNumberTwo = function (e) {
+  removePlaceholder();
   addZeroBeforeDecimal(numTwo, e);
   e.target.dataset.value === '.'
     ? stopDoubleDecimal(numTwo, e)
@@ -111,8 +113,11 @@ const assignOperator = function (e) {
 };
 
 const equals = function () {
-  if (numTwo.length === 0) {
+  console.log(numOne, operator, numTwo);
+  if (numTwo.length === 0 || operator.length === 0) {
     numOne = [];
+    btnSection.textContent = '';
+    btnDot.disabled = false;
     addPlaceholder();
     return;
   }
@@ -126,6 +131,8 @@ const equals = function () {
 };
 
 const deleteBtn = function () {
+  const numOneSplit = [];
+  numOne.forEach(num => numOneSplit.push(num.toString().split('')));
   if (btnSection.textContent.length <= 1) {
     btnSection.textContent = '';
     addPlaceholder();
@@ -133,7 +140,9 @@ const deleteBtn = function () {
     btnSection.textContent = btnSection.textContent.slice(0, -1);
   }
   if (operator.length === 0)
-    Array.isArray(numOne) ? (numOne = numOne.slice(0, -1)) : clear();
+    Array.isArray(numOne)
+      ? (numOne = numOneSplit.flat().slice(0, -1))
+      : clear();
   if (operator.length > 0) numTwo = numTwo.slice(0, -1);
   if (!btnSection.textContent.includes('.')) btnDot.disabled = false;
 };
